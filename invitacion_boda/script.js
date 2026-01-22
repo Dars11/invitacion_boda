@@ -144,16 +144,38 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
+//Implementacion de invitados dinamicos
 document.addEventListener('DOMContentLoaded', function() {
-    // 1. Obtener los parámetros de la URL
     const params = new URLSearchParams(window.location.search);
+    // Usaremos el parámetro 'familia' (o 'invitados', como prefieras)
+    const dataNombres = params.get('familia');
     
-    // 2. Buscar el parámetro 'invitado'
-    const nombre = params.get('invitado');
-    
-    // 3. Si existe el nombre, reemplazar el texto en el HTML
-    if (nombre) {
-        // decodeURIComponent ayuda con tildes y espacios
-        document.getElementById('nombre-invitado').innerText = nombre;
+    const contenedor = document.getElementById('contenedor-invitados');
+
+    if (dataNombres) {
+        // 1. Limpiamos el contenedor (borramos "Invitado Especial")
+        contenedor.innerHTML = ''; 
+
+        // 2. Convertimos el texto del link en una lista (Array)
+        // Ejemplo: "Juan|Ana|Luis" se convierte en ["Juan", "Ana", "Luis"]
+        const listaNombres = dataNombres.split('|');
+
+        // 3. Recorremos la lista y creamos un elemento por cada persona
+        listaNombres.forEach(nombre => {
+            // Creamos una etiqueta nueva (puede ser span, p, h2, etc.)
+            const nuevoElemento = document.createElement('span');
+            
+            // Le ponemos el texto
+            nuevoElemento.innerText = nombre;
+            
+            // Le agregamos la clase CSS para que se vea bonito (mismo estilo que tenías)
+            nuevoElemento.classList.add('nombre-invitado');
+            
+            // Opcional: Forzamos que sea bloque para que salga uno debajo de otro
+            nuevoElemento.style.display = 'block'; 
+
+            // 4. Lo insertamos dentro del contenedor
+            contenedor.appendChild(nuevoElemento);
+        });
     }
 });
