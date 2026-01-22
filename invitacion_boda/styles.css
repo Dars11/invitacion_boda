@@ -1,9 +1,11 @@
 /* Estilos Generales */
 html {
+    overflow-x: hidden;
     scrollbar-gutter: stable;
 }
 
 body {
+    overflow-x: hidden;
     font-family: 'Lato', sans-serif;
     margin: 0;
     color: rgb(93, 93, 93);
@@ -95,7 +97,8 @@ h2 {
 .seccion {
     padding: 80px 20px;
     /* Mantenemos el espaciado vertical */
-
+    overflow-x: hidden;
+    /* Prevenir overflow horizontal */
 }
 
 .seccion-contenido {
@@ -104,6 +107,8 @@ h2 {
     margin: 0 auto;
     /* El centrado va aquí */
     text-align: center;
+    overflow-x: hidden;
+    /* Prevenir overflow horizontal */
 }
 
 /* --- Estilos para Separación de Secciones --- */
@@ -829,6 +834,11 @@ h2 {
 
 
 /* --- Sección 8: Icono de Regalos --- */
+#regalos {
+    overflow: hidden;
+    /* Evitar que la decoración flotante cause scroll */
+}
+
 #regalos i {
     font-size: 3.5em;
     color: #A67841;
@@ -1338,10 +1348,11 @@ h2 {
 .shape-divider-golden-line svg {
     position: relative;
     display: block;
-    width: 130%;
-    /* Wider for gentler curve */
+    width: 100%;
+    /* Cambiado de 130% a 100% para evitar overflow */
     height: 100%;
-    left: -15%;
+    left: 0;
+    /* Cambiado de -15% a 0 */
 }
 
 .shape-divider-golden-line .shape-line {
@@ -1370,14 +1381,15 @@ h2 {
 }
 
 .decoracion-flotante.derecha {
-    right: -100px;
-    /* Slight overlap off-screen or to the very edge */
+    right: 0;
+    /* Posicionado en el borde derecho pero dentro del contenedor para ser visible con overflow: hidden */
 }
 
 /* Ensure parent has relative positioning */
 #regalos .seccion-contenido {
     position: relative;
-    /* overflow: visible;  Might need this if hidden by default, but be careful with scrollbars */
+    overflow: hidden;
+    /* Ocultar overflow para que la decoración flotante no cause scroll */
 }
 
 /* If overflow issue arises, apply overflow-x: hidden to body/main */
@@ -1410,29 +1422,26 @@ h2 {
 /* Mobile: Adjust or Hide */
 @media (max-width: 1000px) {
     .decoracion-flotante.derecha {
-        right: -60px;
-        /* Bring it closer */
-        opacity: 0.5;
-        /* More visible */
+        right: 0;
+        /* Mantener dentro del contenedor */
+        opacity: 0.7;
+        /* Más visible en pantallas medianas */
     }
 }
 
 @media (max-width: 767px) {
     .decoracion-flotante {
-        width: 180px;
-        /* Slightly larger again */
-        height: 360px;
-        right: -20px;
-        /* Almost fully inside, just clipping edge */
-        /* almost visible at the top */
-        top: 5%;
-        opacity: 0.25;
-        /* Faint background behind text */
+        width: 120px;
+        /* Reducido significativamente */
+        height: 240px;
+        top: 10%;
+        opacity: 0.3;
+        /* Más transparente para no interferir con el contenido */
     }
 
     .decoracion-flotante.derecha {
-        right: -40px;
-        /* Override specific interaction if needed */
+        right: 0px;
+        /* Asegurar que esté dentro del viewport solo en móvil */
     }
 }
 
@@ -1453,10 +1462,11 @@ h2 {
 .shape-divider-intertwined svg {
     position: relative;
     display: block;
-    width: 130%;
-    /* Wider for gentler curve */
+    width: 100%;
+    /* Cambiado de 130% a 100% para evitar overflow */
     height: 100%;
-    left: -15%;
+    left: 0;
+    /* Cambiado de -15% a 0 */
 }
 
 .shape-divider-intertwined .shape-line {
