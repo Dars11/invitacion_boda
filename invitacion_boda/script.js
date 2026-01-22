@@ -164,9 +164,11 @@ document.addEventListener('DOMContentLoaded', function() {
         listaNombres.forEach(nombre => {
             // Creamos una etiqueta nueva (puede ser span, p, h2, etc.)
             const nuevoElemento = document.createElement('span');
+
+            let nombreLimpio = decodeURIComponent(nombre).replace(/\+/g, ' ');
             
             // Le ponemos el texto
-            nuevoElemento.innerText = nombre;
+            nuevoElemento.innerText = nombreLimpio;
             
             // Le agregamos la clase CSS para que se vea bonito (mismo estilo que tenías)
             nuevoElemento.classList.add('nombre-invitado');
