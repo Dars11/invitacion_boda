@@ -1,0 +1,1517 @@
+/* Estilos Generales */
+html {
+    scrollbar-gutter: stable;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    margin: 0;
+    color: rgb(93, 93, 93);
+    /* Un gris más suave */
+    line-height: 1.8;
+    background-color: #f9f6f2;
+    /* Tono Nácar/Perla */
+    transition: background-color 0.5s ease;
+}
+
+/* --- Bloqueo de scroll Profesional --- */
+body.esta-bloqueado {
+    overflow: hidden !important;
+    height: 100vh;
+    touch-action: none;
+    /* Bloquea scroll en móviles */
+}
+
+.shape-divider-waves {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.shape-divider-waves svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 80px;
+}
+
+/* Capa 1 (Fondo) - Dorado suave */
+.shape-divider-waves .shape-fill:nth-child(1) {
+    fill: #A67841;
+    opacity: 0.15;
+}
+
+/* Capa 2 (Medio) - Dorado medio */
+.shape-divider-waves .shape-fill:nth-child(2) {
+    fill: #A67841;
+    opacity: 0.3;
+}
+
+/* Capa 3 (Frente) - Blanco sólido (conecta con la siguiente sección) */
+.shape-divider-waves .shape-fill:nth-child(3) {
+    fill: #ffffff;
+    opacity: 1;
+}
+
+/** Media Queries para Ajuste de Altura **/
+@media (min-width: 768px) and (max-width: 1023px) {
+    .shape-divider-waves svg {
+        height: 60px;
+    }
+}
+
+@media (max-width: 767px) {
+    .shape-divider-waves svg {
+        height: 40px;
+    }
+}
+
+h1,
+h2,
+h3,
+.nombres-novios {
+    font-family: 'Tangerine', cursive;
+    font-weight: 700;
+    color: #A67841;
+    /* Dorado elegante */
+}
+
+h3 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-family: 'Tangerine', cursive;
+    font-size: 4em;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.seccion {
+    padding: 80px 20px;
+    /* Mantenemos el espaciado vertical */
+
+}
+
+.seccion-contenido {
+    max-width: 900px;
+    /* El ancho máximo va aquí ahora */
+    margin: 0 auto;
+    /* El centrado va aquí */
+    text-align: center;
+}
+
+/* --- Estilos para Separación de Secciones --- */
+.seccion-fondo-blanco {
+    background-color: #ffffff;
+    /* border-top: 1px solid #f0eeeb; */
+    /* Eliminado para dar continuidad al shape divider */
+    /* border-bottom: 1px solid #f0eeeb; */
+    /* Eliminado para dar continuidad al shape divider */
+}
+
+/* Sección 1: Portada y Efecto Parallax */
+.parallax {
+    background-image: url('img/fondo.webp');
+    min-height: 100vh;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.parallax::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(40, 50, 70, 0.4);
+    /* Tono de transparencia */
+}
+
+/* Transición suave hacia la siguiente sección */
+.parallax::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 150px;
+    background: linear-gradient(to bottom, transparent, #f9f6f2);
+    pointer-events: none;
+}
+
+.contenido-portada {
+    position: relative;
+    text-align: center;
+    color: #f0f0f0;
+    /* Blanco roto para mejor contraste */
+}
+
+.contenido-portada h1 {
+    font-family: 'Quintessential', cursive;
+    /* Aplicamos la nueva fuente */
+    font-size: 7.1em;
+    /* Aumentamos el tamaño para que la fuente script luzca */
+    font-weight: normal;
+    margin: 0;
+    color: #f9f6f2;
+    /* Color Nácar/Perla */
+}
+
+.contenido-portada p {
+    font-size: 2.5em;
+    font-family: 'Quintessential', cursive;
+}
+
+/* --- Indicador de Scroll (Flecha Animada) --- */
+.indicador-scroll {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0.8;
+    animation: animacion-rebote 2s infinite;
+}
+
+.flecha-scroll {
+    display: block;
+    width: 25px;
+    height: 25px;
+    border-bottom: 2px solid #fff;
+    border-right: 2px solid #fff;
+    transform: rotate(45deg);
+}
+
+@keyframes animacion-rebote {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateX(-50%) translateY(0);
+    }
+
+    40% {
+        transform: translateX(-50%) translateY(-10px);
+    }
+
+    60% {
+        transform: translateX(-50%) translateY(-5px);
+    }
+}
+
+/* Sección 2: Cuenta Regresiva (Diseño Circular "Anillos") */
+.seccion-cuenta-regresiva {
+    background-color: #f9f6f2;
+    /* Fondo suave para que resalte el blanco */
+    padding: 120px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    /* Para que los anillos no desborden */
+}
+
+.marco-cuenta-regresiva {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 450px;
+    height: 450px;
+}
+
+/* --- Anillos Decorativos (Efecto "Sketchy") --- */
+.anillos-decorativos {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.anillo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    border: 1px solid #A67841;
+    opacity: 0.6;
+}
+
+.anillo-1 {
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, -50%) rotate(15deg) scale(1.1);
+    border-color: rgba(189, 160, 108, 0.4);
+}
+
+.anillo-2 {
+    width: 95%;
+    height: 105%;
+    transform: translate(-50%, -50%) rotate(-10deg) scale(1.15);
+    border-color: rgba(189, 160, 108, 0.3);
+}
+
+.anillo-3 {
+    width: 102%;
+    height: 98%;
+    transform: translate(-50%, -50%) rotate(45deg) scale(1.08);
+    border-color: rgba(189, 160, 108, 0.5);
+}
+
+/* --- Tarjeta Circular Central --- */
+.tarjeta-circular {
+    background-color: #ffffff;
+    border-radius: 50%;
+    width: 380px;
+    height: 380px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 15px 40px rgba(189, 160, 108, 0.15);
+    /* Sombra suave dorada */
+    padding: 40px;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 2;
+}
+
+.titulo-faltan {
+    font-family: 'Tangerine', cursive;
+    font-size: 4em;
+    color: #A67841;
+    margin: 0;
+    font-weight: 700;
+}
+
+.adorno-swash {
+    margin-bottom: 20px;
+    opacity: 0.8;
+}
+
+.icono-corazon,
+.fi-tr-circle-heart {
+    margin-top: 25px;
+    font-size: 2.8em;
+    color: #A67841;
+    display: block;
+    transition: all 0.3s ease;
+    opacity: 0.9;
+}
+
+.icono-corazon:hover,
+.fi-tr-circle-heart:hover {
+    transform: scale(1.1);
+    opacity: 1;
+    color: #8B6635;
+    /* Dorado más oscuro al hacer hover */
+}
+
+/* --- Reloj Interno --- */
+.contenedor-reloj {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    /* Menos espacio para caber en el círculo */
+}
+
+.unidad-tiempo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    min-width: 60px;
+    /* Reducido */
+}
+
+/* Separador vertical fino */
+.unidad-tiempo:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: -8px;
+    /* Ajustado */
+    top: 50%;
+    transform: translateY(-50%);
+    height: 30px;
+    width: 1px;
+    background-color: #e0e0e0;
+    /* Gris muy suave */
+}
+
+.numero-tiempo {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2em;
+    font-weight: 700;
+    color: #5d5d5d;
+    /* Gris oscuro para contraste */
+    line-height: 1;
+    margin-bottom: 2px;
+    font-variant-numeric: tabular-nums;
+}
+
+.etiqueta-tiempo {
+    font-family: 'Lato', sans-serif;
+    font-size: 0.7em;
+    text-transform: lowercase;
+    color: #A67841;
+    /* Dorado */
+    font-weight: bold;
+}
+
+/* Sección 3: Versículo Bíblico */
+.contenedor-versiculo {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.icono-biblia {
+    margin-bottom: 30px;
+    opacity: 0.8;
+}
+
+.icono-biblia i {
+    font-size: 3.5em;
+    color: #A67841;
+}
+
+.texto-versiculo {
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+.versiculo-contenido {
+    font-family: 'Lato', sans-serif;
+    font-size: 1.4em;
+    line-height: 1.8;
+    color: #5d5d5d;
+    font-style: italic;
+    margin: 0 0 25px 0;
+    font-weight: 300;
+}
+
+.versiculo-cita {
+    font-family: 'Tangerine', cursive;
+    font-size: 2.5em;
+    color: #A67841;
+    font-style: normal;
+    display: block;
+    margin-top: 20px;
+}
+
+.adorno-versiculo {
+    margin-top: 30px;
+    opacity: 0.8;
+}
+
+.adorno-versiculo svg {
+    display: inline-block;
+}
+
+/* Sección 4: Información de la Ceremonia (Diseño Creativo) */
+.tarjeta-evento {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(166, 120, 65, 0.1);
+    max-width: 800px;
+    margin: 0 auto;
+    gap: 40px;
+    border: 1px solid rgba(166, 120, 65, 0.2);
+}
+
+.fecha-bloque,
+.hora-bloque {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #A67841;
+    min-width: 150px;
+}
+
+.fecha-mes,
+.etiqueta-dato {
+    font-family: 'Lato', sans-serif;
+    font-size: 1.2em;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 300;
+}
+
+.fecha-numero,
+.dato-principal {
+    font-family: 'Playfair Display', serif;
+    font-size: 5em;
+    /* Ajustado para ser consistente */
+    line-height: 1;
+    font-weight: 700;
+    margin: 10px 0;
+}
+
+
+.dato-hora {
+    font-family: 'Playfair Display', serif;
+    font-size: 3em;
+    /* Ajustado para ser consistente */
+    line-height: 1;
+    font-weight: 700;
+    margin: 10px 0;
+}
+
+.fecha-dia {
+    font-family: 'Tangerine', cursive;
+    font-size: 2em;
+}
+
+.pm {
+    font-family: 'Tangerine', cursive;
+    font-size: 2em;
+}
+
+.fecha-anio {
+    font-family: 'Lato', sans-serif;
+    font-size: 0.9em;
+    letter-spacing: 2px;
+    opacity: 0.8;
+    margin-top: 5px;
+}
+
+.divisor-vertical {
+    width: 2px;
+    height: 150px;
+    background: linear-gradient(to bottom, transparent, #A67841, transparent);
+    opacity: 0.5;
+}
+
+.detalles-evento {
+    display: flex;
+    flex-direction: column;
+    /* gap: 11px; */
+    /* Remove padding to center correctly */
+    text-align: center;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilos específicos para el bloque de Lugar re-estructurado */
+.lugar-bloque .detalle-item {
+    flex-direction: column;
+    /* Centrar icono y texto */
+    text-align: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.lugar-bloque .icono-detalle {
+    font-size: 2.5em;
+    /* Un poco mas grande para destacar */
+    color: #A67841;
+    /* Color explícito sin filtros */
+    filter: none;
+    /* Asegurar que no haya filtros */
+}
+
+/* Reutilizamos estilos existentes pero aseguramos centro */
+/* Nuevo estilo para icono de hora restaurado */
+.icono-detalle-hora {
+    font-size: 2em;
+    color: #A67841;
+    /* Dorado */
+    margin-bottom: 10px;
+}
+
+/* Reutilizamos estilos existentes pero aseguramos centro */
+.texto-detalle h3 {
+    margin: 0;
+    font-size: 1.2em;
+    font-family: 'Lato', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    /* Aumentado para coincidir con fecha-mes */
+    color: #A67841;
+    /* CAMBIO: Dorado en lugar de gris #888 */
+    font-weight: 300;
+    /* Coincidir con fecha-mes */
+}
+
+/* Para el texto principal del lugar (Nombre del lugar) */
+.texto-detalle p:first-of-type {
+    margin: 10px 0;
+    font-family: 'Playfair Display', serif;
+    /* Coincidir con fecha-numero */
+    font-size: 1.8em;
+    /* Tamaño destacado */
+    font-weight: 700;
+    color: #A67841;
+    /* Dorado */
+    line-height: 1.2;
+}
+
+/* Para la dirección (secundario) */
+.texto-detalle .direccion {
+    font-size: 2em;
+    font-family: 'Tangerine', cursive;
+    /* Coincidir con fecha-dia */
+    color: #A67841;
+    /* Dorado tambien, o gris suave si se prefiere contraste, pero usuario pidió colores */
+    font-style: normal;
+    opacity: 0.9;
+    margin-top: 5px;
+}
+
+.accion-mapa {
+    margin-top: 15px;
+}
+
+.mapa-btn {
+    font-size: 0.9em;
+    padding: 10px 20px;
+    background-color: transparent;
+    border: 1px solid #A67841;
+    color: #A67841;
+    transition: all 0.3s ease;
+}
+
+.mapa-btn:hover {
+    background-color: #A67841;
+    color: #fff;
+}
+
+
+.boton {
+    font-family: "Buda", serif;
+    display: inline-block;
+    background-color: #A67841;
+    /* Dorado */
+    color: #fff;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    font-size: 1.3rem;
+    /* Cambiado a rem para evitar efecto multiplicador */
+}
+
+.boton:hover {
+    background-color: #a88c5a;
+    /* Dorado un poco más oscuro */
+}
+
+.letra {
+    font-size: 1.3rem;
+    /* Cambiado a rem para mantener consistencia */
+    font-family: "Buda", serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.letra b,
+.letra strong {
+    font-weight: 700;
+    /* Esto crea una sombra del mismo color alrededor para simular grosor */
+    text-shadow: 0.2px 0 0 currentColor, -0.2px 0 0 currentColor;
+}
+
+/* --- Sección 6: Pases de Invitados --- */
+.numero-invitados {
+    background-color: #A67841;
+    /* Dorado */
+    color: #fff;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8em;
+    font-weight: 700;
+    margin: 0 auto 20px auto;
+}
+
+#pases h2 {
+    font-family: 'Tangerine', cursive;
+    font-weight: 700;
+    letter-spacing: 2px;
+    /* Espaciado entre letras */
+    font-size: 4em;
+    margin-bottom: 30px;
+}
+
+.lista-invitados {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    /* Espacio entre nombres */
+    margin-bottom: 30px;
+}
+
+.nombre-invitado {
+    background-color: rgba(239, 235, 233, 0.8);
+    /* Beige claro */
+    padding: 10px 25px;
+    border-radius: 8px;
+    font-size: 1.1em;
+    color: #5d5d5d;
+}
+
+.frase-final {
+    font-size: 0.9em;
+    color: #777;
+}
+
+
+/* Sección 7: Información Adicional */
+.info-columnas {
+    display: flex;
+    justify-content: space-around;
+    gap: 40px;
+    text-align: left;
+}
+
+.columna {
+    flex: 1;
+}
+
+/* Sección 8: Despedida */
+#despedida {
+    background-color: #ffffff;
+    /* Fondo blanco */
+    padding: 60px 20px;
+    text-align: center;
+}
+
+#despedida h2 {
+    font-size: 2.5em;
+}
+
+.nombres-novios {
+    font-size: 2.5em;
+    margin-top: 10px;
+}
+
+/* --- Sección 5: Nuevo Carrusel de Fotos --- */
+#galeria {
+    padding-bottom: 120px;
+    /* Space for the golden line divider */
+}
+
+.carrusel-contenedor {
+    position: relative;
+    width: 100%;
+    padding: 0 40px;
+    /* Espacio para que los botones no se peguen a los bordes */
+    box-sizing: border-box;
+}
+
+.carrusel-track {
+    display: flex;
+    overflow-x: auto;
+    /* Habilita el scroll horizontal */
+    scroll-snap-type: x mandatory;
+    /* Hace que el scroll se "pegue" a un slide */
+    gap: 20px;
+    /* Espacio entre las fotos */
+    padding-bottom: 20px;
+    /* Espacio para la barra de scroll, si aparece */
+    -ms-overflow-style: none;
+    /* IE y Edge */
+    scrollbar-width: none;
+    /* Firefox */
+    scroll-behavior: smooth;
+    /* Animación suave del scroll */
+}
+
+/* Oculta la barra de scroll en Chrome, Safari y Opera */
+.carrusel-track::-webkit-scrollbar {
+    display: none;
+}
+
+.carrusel-slide {
+    flex: 0 0 30%;
+    /* Cada slide ocupa el 30% del contenedor. Muestra ~3 slides */
+    min-width: 250px;
+    /* Ancho mínimo para cada foto */
+    scroll-snap-align: start;
+    /* Alinea el slide al inicio al hacer scroll */
+}
+
+.carrusel-slide img {
+    width: 100%;
+    height: 350px;
+    /* Altura fija para todas las imágenes */
+    object-fit: cover;
+    /* Evita que las imágenes se deformen */
+    border-radius: 8px;
+}
+
+
+/* --- Efectos Flotantes y Animaciones --- */
+@keyframes flotar {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+/* Animación de entrada para las secciones */
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.seccion {
+    /* ... tus estilos existentes para .seccion ... */
+    animation: aparecer 1s ease-out forwards;
+    opacity: 0;
+    /* Inicia invisible para la animación */
+}
+
+/* Aplicamos el efecto flotante a elementos específicos */
+#reloj div {
+    animation: flotar 5s ease-in-out infinite;
+}
+
+/* Retrasamos la animación para cada caja del reloj */
+#reloj div:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+#reloj div:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+#reloj div:nth-child(4) {
+    animation-delay: 0.6s;
+}
+
+
+/* --- Sección 8: Icono de Regalos --- */
+#regalos i {
+    font-size: 3.5em;
+    color: #A67841;
+    margin-bottom: 20px;
+    display: block;
+}
+
+/* --- Estilos Responsivos --- */
+
+/* Para tablets y móviles (hasta 768px) */
+@media (max-width: 768px) {
+
+    /* 1. Ajuste de fuentes principales */
+    .contenido-portada h1 {
+        font-size: 4.5em;
+        /* Reducimos el tamaño del título principal */
+    }
+
+    .contenido-portada p {
+        font-size: 1.8em;
+    }
+
+    .indicador-scroll {
+        bottom: 18vh;
+        /* Subimos más para evitar la interfaz del navegador móvil */
+    }
+
+    h2 {
+        font-size: 3em;
+        /* Reducimos los títulos de las secciones */
+    }
+
+    h3 {
+        font-size: 2.5em;
+        /* Reducimos los títulos de las secciones */
+    }
+
+    .seccion {
+        padding: 50px 15px;
+        /* Menos espacio en los lados */
+    }
+
+    /* 2. Arreglo de la cuenta regresiva circular móvil */
+    .marco-cuenta-regresiva {
+        width: 300px;
+        height: 300px;
+    }
+
+    .tarjeta-circular {
+        width: 280px;
+        height: 280px;
+        padding: 20px;
+    }
+
+    .titulo-faltan {
+        font-size: 3em;
+    }
+
+    .contenedor-reloj {
+        gap: 10px;
+    }
+
+    .unidad-tiempo {
+        min-width: 45px;
+    }
+
+    .numero-tiempo {
+        font-size: 1.5em;
+    }
+
+    .unidad-tiempo:not(:last-child)::after {
+        right: -5px;
+    }
+
+    /* 3. Columnas de información se apilan verticalmente */
+    .info-columnas {
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
+    }
+
+    /* Rediseño Ceremonia Móvil */
+    .tarjeta-evento {
+        flex-direction: column;
+        padding: 30px 20px;
+        gap: 30px;
+    }
+
+    .divisor-vertical {
+        width: 100%;
+        height: 1px;
+        background: linear-gradient(to right, transparent, #A67841, transparent);
+    }
+
+    .detalles-evento {
+        text-align: center;
+        align-items: center;
+        gap: 25px;
+    }
+
+    .detalle-item {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    /* 3.5. Versículo Bíblico - Ajustes móviles */
+    .versiculo-contenido {
+        font-size: 1.1em;
+        line-height: 1.6;
+    }
+
+    .versiculo-cita {
+        font-size: 2em;
+    }
+
+    .icono-biblia i {
+        font-size: 2.8em;
+    }
+
+    .adorno-versiculo svg {
+        width: 120px;
+        height: 18px;
+    }
+
+    /* 4. Carrusel más pequeño */
+    .carrusel-contenedor {
+        max-width: 90vw;
+        /* El carrusel ocupa casi todo el ancho de la pantalla */
+    }
+
+    .parallax {
+        background-attachment: scroll;
+        /* Cambia de 'fixed' a 'scroll' */
+        background-position: center;
+        /* Centra la imagen */
+        background-size: cover;
+        /* Asegura que cubra todo el fondo */
+        min-height: 100vh;
+        /* Asegura altura completa */
+    }
+}
+
+/* Para móviles muy pequeños (hasta 480px) */
+@media (max-width: 480px) {
+    .contenido-portada h1 {
+        font-size: 3.5em;
+        /* Aún más pequeño para los móviles más estrechos */
+    }
+
+    .contenido-portada p {
+        font-size: 1.5em;
+    }
+
+    .marco-cuenta-regresiva {
+        width: 260px;
+        height: 260px;
+    }
+
+    .tarjeta-circular {
+        width: 240px;
+        height: 240px;
+    }
+}
+
+/* --- SISTEMA DE BIENVENIDA (Enfoque Senior) --- */
+.pantalla-bienvenida {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f9f6f2;
+    /* Sólido inicial para evitar FOUC */
+    transition: opacity 1.5s cubic-bezier(0.65, 0, 0.35, 1),
+        visibility 1.5s,
+        transform 1.5s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.capa-bienvenida {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.2) 0%, rgba(189, 160, 108, 0.05) 100%);
+}
+
+.contenido-bienvenida {
+    position: relative;
+    text-align: center;
+    padding: 60px 40px;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(189, 160, 108, 0.2);
+    border-radius: 20px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08);
+    max-width: 550px;
+    width: 90%;
+    animation: bienvenidoEntrada 1.2s ease-out;
+}
+
+.subtitulo-bienvenida {
+    display: block;
+    font-size: 0.9em;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: #888;
+    margin-bottom: 15px;
+    font-family: 'Lato', sans-serif;
+}
+
+.titulo-bienvenida {
+    font-family: 'Updock', cursive;
+    font-size: 4em;
+    color: #A67841;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.divisor-bienvenida {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 30px 0;
+}
+
+.divisor-bienvenida::before,
+.divisor-bienvenida::after {
+    content: '';
+    height: 1px;
+    width: 60px;
+    background: linear-gradient(to right, transparent, #A67841, transparent);
+}
+
+.diamante-bienvenida {
+    width: 10px;
+    height: 10px;
+    background: #A67841;
+    transform: rotate(45deg);
+    margin: 0 15px;
+    opacity: 0.6;
+}
+
+.mensaje-bienvenida {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.2em;
+    color: #5d5d5d;
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
+.acciones-bienvenida {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+
+.boton-premium {
+    min-width: 280px;
+    padding: 18px 30px;
+    font-size: 0.9em;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    border: none;
+    font-family: 'Lato', sans-serif;
+}
+
+.boton-dorado {
+    background: linear-gradient(135deg, #A67841 0%, #d4bb8e 50%, #A67841 100%);
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 10px 30px rgba(189, 160, 108, 0.3);
+}
+
+.boton-dorado:hover {
+    background-position: right center;
+    transform: translateY(-3px);
+    box-shadow: 0 15px 35px rgba(189, 160, 108, 0.4);
+}
+
+.boton-contorno {
+    background: transparent;
+    border: 1px solid #A67841;
+    color: #A67841;
+}
+
+.boton-contorno:hover {
+    background: rgba(189, 160, 108, 0.05);
+    transform: translateY(-2px);
+}
+
+/* --- ESTADO: SALIDA --- */
+.pantalla-bienvenida.esta-saliendo {
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(1.1);
+}
+
+/* --- ANIMACIONES --- */
+@keyframes bienvenidoEntrada {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* --- OPTIMIZACIÓN MÓVIL --- */
+@media (max-width: 480px) {
+    .titulo-bienvenida {
+        font-size: 2.8em;
+    }
+
+    .contenido-bienvenida {
+        padding: 40px 25px;
+    }
+
+    .boton-premium {
+        min-width: 100%;
+    }
+}
+
+/* --- Botón Flotante de Música --- */
+.boton-flotante-musica {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 56px;
+    height: 56px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(249, 246, 242, 0.95) 100%);
+    /* Gradiente sutil con los colores de la página */
+    border: 1.5px solid rgba(166, 120, 65, 0.25);
+    /* Borde dorado muy sutil */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 10000;
+    box-shadow: 0 4px 16px rgba(166, 120, 65, 0.12),
+        0 2px 6px rgba(93, 93, 93, 0.08);
+    /* Sombra dorada muy suave */
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 0;
+    outline: none;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.boton-flotante-musica:hover {
+    transform: translateY(-3px) scale(1.05);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 1) 0%, rgba(249, 246, 242, 1) 100%);
+    border-color: rgba(166, 120, 65, 0.4);
+    box-shadow: 0 8px 24px rgba(166, 120, 65, 0.2),
+        0 4px 12px rgba(93, 93, 93, 0.12);
+}
+
+.boton-flotante-musica:active {
+    transform: translateY(-1px) scale(1.02);
+}
+
+.boton-flotante-musica.oculto {
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.icono-musica {
+    width: 26px;
+    height: 26px;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.icono-musica path,
+.icono-musica circle {
+    transition: stroke 0.3s ease;
+}
+
+.boton-flotante-musica:hover .icono-musica path,
+.boton-flotante-musica:hover .icono-musica circle {
+    stroke: #8B6635;
+    /* Dorado más oscuro al hacer hover */
+}
+
+/* Animación de rotación cuando suena la música */
+@keyframes rotar-suave {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.boton-flotante-musica.reproduciendo .icono-musica {
+    animation: rotar-suave 4s linear infinite;
+}
+
+/* Ajustes desde aqui*/
+
+.custom-shape-divider-top-1768862544 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.custom-shape-divider-top-1768862544 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 92px;
+}
+
+.custom-shape-divider-top-1768862544 .shape-fill {
+    fill: #DEE5E2;
+}
+
+/** For tablet devices **/
+@media (min-width: 768px) and (max-width: 1023px) {
+    .custom-shape-divider-top-1768862544 svg {
+        width: calc(100% + 1.3px);
+        height: 63px;
+    }
+}
+
+/** For mobile devices **/
+@media (max-width: 767px) {
+    .custom-shape-divider-top-1768862544 svg {
+        width: calc(100% + 1.3px);
+        height: 50px;
+    }
+}
+
+
+
+/* --- Shape Divider Arc (Sec 6 -> Sec 7) --- */
+.shape-divider-arc {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.shape-divider-arc svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 90px;
+}
+
+/* Capa 1: Acento Dorado */
+.shape-divider-arc .shape-fill:nth-child(1) {
+    fill: #A67841;
+    opacity: 0.25;
+}
+
+/* Capa 2: Principal Blanca (Conecta) */
+.shape-divider-arc .shape-fill:nth-child(2) {
+    fill: #ffffff;
+    opacity: 1;
+}
+
+/** Media Queries Divider Arrow/Arc **/
+@media (max-width: 767px) {
+    .shape-divider-arc svg {
+        height: 60px;
+    }
+}
+
+/* --- Golden Line Divider --- */
+.shape-divider-golden-line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    height: 120px;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.shape-divider-golden-line svg {
+    position: relative;
+    display: block;
+    width: 130%;
+    /* Wider for gentler curve */
+    height: 100%;
+    left: -15%;
+}
+
+.shape-divider-golden-line .shape-line {
+    fill: none;
+    stroke: #A67841;
+    stroke-width: 1.5px;
+}
+
+@media (max-width: 767px) {
+    .shape-divider-golden-line {
+        height: 60px;
+    }
+}
+
+/* --- Decoración Floral Geométrica --- */
+.decoracion-flotante {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 250px;
+    height: 500px;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.9;
+    animation: flotar 6s ease-in-out infinite;
+}
+
+.decoracion-flotante.derecha {
+    right: -100px;
+    /* Slight overlap off-screen or to the very edge */
+}
+
+/* Ensure parent has relative positioning */
+#regalos .seccion-contenido {
+    position: relative;
+    /* overflow: visible;  Might need this if hidden by default, but be careful with scrollbars */
+}
+
+/* If overflow issue arises, apply overflow-x: hidden to body/main */
+
+.decoracion-flotante svg {
+    width: 100%;
+    height: 100%;
+}
+
+.geom-line {
+    stroke: #A67841;
+    /* Gold */
+    stroke-width: 1.5px;
+    opacity: 0.6;
+}
+
+.hoja {
+    fill: #8F9E8B;
+    /* Sage Green */
+    opacity: 0.4;
+    transition: all 0.5s ease;
+}
+
+.hoja:hover {
+    fill: #A67841;
+    /* Gold on hover if interactive, but pointer-events: none prevents it usually. Just style choice */
+    opacity: 0.6;
+}
+
+/* Mobile: Adjust or Hide */
+@media (max-width: 1000px) {
+    .decoracion-flotante.derecha {
+        right: -60px;
+        /* Bring it closer */
+        opacity: 0.5;
+        /* More visible */
+    }
+}
+
+@media (max-width: 767px) {
+    .decoracion-flotante {
+        width: 180px;
+        /* Slightly larger again */
+        height: 360px;
+        right: -20px;
+        /* Almost fully inside, just clipping edge */
+        /* almost visible at the top */
+        top: 5%;
+        opacity: 0.25;
+        /* Faint background behind text */
+    }
+
+    .decoracion-flotante.derecha {
+        right: -40px;
+        /* Override specific interaction if needed */
+    }
+}
+
+/* --- Intertwined Golden Line Divider --- */
+.shape-divider-intertwined {
+    position: absolute;
+    bottom: -60px;
+    /* Slight overlap to connection with next section */
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    height: 120px;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.shape-divider-intertwined svg {
+    position: relative;
+    display: block;
+    width: 130%;
+    /* Wider for gentler curve */
+    height: 100%;
+    left: -15%;
+}
+
+.shape-divider-intertwined .shape-line {
+    fill: none;
+    stroke: #A67841;
+    stroke-width: 1.5px;
+}
+
+.shape-divider-intertwined .line-1 {
+    opacity: 0.8;
+}
+
+.shape-divider-intertwined .line-2 {
+    opacity: 0.6;
+}
+
+@media (max-width: 767px) {
+    .shape-divider-intertwined {
+        height: 60px;
+        bottom: -30px;
+    }
+}
+
+/* --- Decoración Final (Footer) --- */
+.decoracion-final {
+    width: 60px;
+    /* Reduced from 100px */
+    height: 50px;
+    /* Reduced from 80px */
+    margin: 10px auto;
+    /* Reduced margin */
+    animation: pulso-suave 4s ease-in-out infinite;
+    opacity: 0.8;
+    /* Slightly more transparent to integrate better */
+}
+
+.decoracion-final svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+@keyframes pulso-suave {
+    0% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+
+    50% {
+        transform: scale(1.05);
+        opacity: 0.9;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+}

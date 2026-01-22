@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestra Boda - Novio & Novia</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Updock&family=Parisienne&family=Buda&family=Quintessential&family=Playfair+Display:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Buda:wght@300;400;700&family=Tangerine:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css">
+    <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-thin-rounded/css/uicons-thin-rounded.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="esta-bloqueado">
+
+    <!-- Experiencia de Entrada (Splash Screen) -->
+    <div id="splash-boda" class="pantalla-bienvenida">
+        <div class="capa-bienvenida"></div>
+        <div class="contenido-bienvenida">
+            <div class="encabezado-bienvenida">
+                <span class="subtitulo-bienvenida">Bienvenidos a la unión de</span>
+                <h1 class="titulo-bienvenida">Daniel & Stephania</h1>
+            </div>
+
+            <div class="divisor-bienvenida">
+                <span class="diamante-bienvenida"></span>
+            </div>
+
+            <p class="subtitulo-bienvenida">"Queremos que lo vivas con nosotros"</p>
+
+            <div class="acciones-bienvenida">
+                <button id="btn-musica" class="boton-premium boton-dorado">
+                    <span class="icono-boton">♪</span>
+                    <span class="texto-boton">Ingresar con música</span>
+                </button>
+                <button id="btn-silencio" class="boton-premium boton-contorno">
+                    <span class="texto-boton">Solo ingresar</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Recurso de Audio (Música de Fondo) -->
+    <audio id="musica-boda" loop preload="auto">
+        <source src="https://github.com/Dars11/boda/raw/main/thousand_years.m4a" type="audio/mp4">
+    </audio>
+
+
+    <!-- Sección 1: Portada -->
+    <header id="portada" class="parallax">
+        <div class="contenido-portada">
+            <h1>Daniel y Stephania</h1>
+            <p>¡Nos casamos!</p>
+        </div>
+
+        <div class="indicador-scroll">
+            <span class="flecha-scroll"></span>
+        </div>
+    </header>
+
+    <div class="custom-shape-divider-top-1768862544">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path
+                d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"
+                opacity=".25" class="shape-fill"></path>
+            <path
+                d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z"
+                opacity=".5" class="shape-fill"></path>
+            <path
+                d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z"
+                class="shape-fill"></path>
+        </svg>
+    </div>
+
+    <main>
+        <!-- Sección 2: Cuenta Regresiva -->
+        <section id="cuenta-regresiva" class="seccion seccion-cuenta-regresiva">
+
+            <!-- Contenedor Relativo para centrar todo -->
+            <div class="marco-cuenta-regresiva">
+                <!-- Anillos Decorativos de Fondo -->
+                <div class="anillos-decorativos">
+                    <span class="anillo anillo-1"></span>
+                    <span class="anillo anillo-2"></span>
+                    <span class="anillo anillo-3"></span>
+                </div>
+
+                <!-- Tarjeta Circular Principal -->
+                <div class="tarjeta-circular">
+                    <h2 class="titulo-faltan">Faltan</h2>
+                    <div class="adorno-swash">
+                        <svg viewBox="0 0 100 20" width="80" height="15">
+                            <path d="M0,10 Q25,20 50,10 T100,10" fill="none" stroke="#9e824c" stroke-width="2" />
+                        </svg>
+                    </div>
+
+                    <div id="reloj" class="contenedor-reloj">
+                        <div class="unidad-tiempo">
+                            <span id="dias" class="numero-tiempo">00</span>
+                            <span class="etiqueta-tiempo">Días</span>
+                        </div>
+                        <div class="unidad-tiempo">
+                            <span id="horas" class="numero-tiempo">00</span>
+                            <span class="etiqueta-tiempo">Hs</span>
+                        </div>
+                        <div class="unidad-tiempo">
+                            <span id="minutos" class="numero-tiempo">00</span>
+                            <span class="etiqueta-tiempo">Min</span>
+                        </div>
+                        <div class="unidad-tiempo">
+                            <span id="segundos" class="numero-tiempo">00</span>
+                            <span class="etiqueta-tiempo">Seg</span>
+                        </div>
+                    </div>
+                    <i class="fi fi-tr-circle-heart"></i>
+                </div>
+            </div>
+
+            <!-- Shape Divider Multi-Layer Waves -->
+            <div class="shape-divider-waves">
+                <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+                    preserveAspectRatio="none">
+                    <path
+                        d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"
+                        class="shape-fill"></path>
+                    <path
+                        d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z"
+                        class="shape-fill"></path>
+                    <path
+                        d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z"
+                        class="shape-fill"></path>
+                </svg>
+            </div>
+        </section>
+
+        <!-- Sección 3: Versículo Bíblico -->
+        <section id="versiculo" class="seccion seccion-fondo-blanco">
+            <div class="seccion-contenido">
+                <div class="contenedor-versiculo">
+                    <!-- Icono decorativo superior -->
+                    <div class="icono-biblia">
+                        <i class="fi fi-tr-book-medical"></i>
+                    </div>
+
+                    <!-- Texto del versículo -->
+                    <blockquote class="texto-versiculo">
+                        <p class="versiculo-contenido letra">
+                            "Y los dos serán una sola carne. Así que ya no son dos, sino uno solo.
+                            Por tanto, lo que Dios ha unido, que no lo separe el hombre."
+                        </p>
+                        <cite class="versiculo-cita">— Marcos 10:8-9</cite>
+                    </blockquote>
+
+                    <!-- Adorno decorativo inferior -->
+                    <div class="adorno-versiculo">
+                        <svg viewBox="0 0 200 30" width="150" height="22">
+                            <path d="M10,15 Q50,5 100,15 T190,15" fill="none" stroke="#A67841" stroke-width="1.5" />
+                            <circle cx="100" cy="15" r="3" fill="#A67841" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección 4: Información de la Ceremonia -->
+        <section id="ceremonia" class="seccion">
+            <div class="seccion-contenido">
+                <h2>Ceremonia y Recepción</h2>
+                <div class="tarjeta-evento">
+                    <!-- Bloque Izquierdo: Fecha Destacada -->
+                    <div class="fecha-bloque">
+                        <span class="fecha-mes">MARZO</span>
+                        <span class="fecha-numero">14</span>
+                        <span class="fecha-dia">Sábado</span>
+                        <span class="fecha-anio">2026</span>
+                    </div>
+
+                    <div class="divisor-vertical"></div>
+
+                    <div class=" hora-bloque">
+                        <div class="icono-detalle-hora">
+                            <i class="fi fi-tr-clock-two"></i>
+                        </div>
+                        <span class="etiqueta-dato">HORA</span>
+                        <span class="dato-hora">5:00</span>
+                        <span class="pm">Pm</span>
+                    </div>
+
+                    <!-- Divisor Decorativo -->
+                    <div class="divisor-vertical"></div>
+
+                    <!-- Bloque Derecho: Lugar (Modificado) -->
+                    <div class="detalles-evento lugar-bloque">
+                        <div class="detalle-item centered-content">
+                            <!-- Icono eliminado o cambiado si se desea, dejamos solo texto centrado para simetría o icono arriba -->
+                            <span class="icono-detalle"><i class="fi fi-tr-earth-americas"></i></span>
+                            <div class="texto-detalle">
+                                <h3>Lugar</h3>
+                                <p>ICC El Porvenir</p>
+                                <p class="direccion">El Porvenir - San Antero</p>
+                            </div>
+                        </div>
+
+                        <div class="accion-mapa">
+                            <a href="https://www.google.com/maps?rlz=1C5CHFA_enCO1098CO1098&sca_esv=7670df6d756a93b6&sxsrf=AE3TifMCq6Xyv14BigfZKzMewpilWehwRw:1767656384893&um=1&ie=UTF-8&fb=1&gl=co&sa=X&geocode=Kfux61kgCFmOMa5HD8BxJdxt&daddr=San+Antero,+C%C3%B3rdoba"
+                                target="_blank" class="boton mapa-btn">
+                                Ver ubicación
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Intertwined Golden Line Divider -->
+            <div class="shape-divider-intertwined">
+                <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+                    preserveAspectRatio="none">
+                    <path d="M0,60 Q300,120 600,60 T1200,60" class="shape-line line-1"></path>
+                    <path d="M0,60 Q300,0 600,60 T1200,60" class="shape-line line-2"></path>
+                </svg>
+            </div>
+        </section>
+
+        <!-- Sección 5: Galería de Fotos -->
+        <section id="galeria" class="seccion seccion-fondo-blanco">
+            <h2>Nuestros Momentos</h2>
+            <div class="carrusel-contenedor">
+                <div class="carrusel-track">
+                    <div class="carrusel-slide"><img src="img/c1.webp" alt="Foto de los novios 1"></div>
+                    <div class="carrusel-slide"><img src="img/c2.webp" alt="Foto de los novios 2"></div>
+                    <div class="carrusel-slide"><img src="img/c3.webp" alt="Foto de los novios 3"></div>
+                    <div class="carrusel-slide"><img src="img/c4.webp" alt="Foto de los novios 4"></div>
+                    <div class="carrusel-slide"><img src="img/c5.webp" alt="Foto de los novios 5"></div>
+                </div>
+            </div>
+            </div>
+
+
+
+            <!-- Golden Line Divider -->
+            <div class="shape-divider-golden-line">
+                <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 100"
+                    preserveAspectRatio="none">
+                    <path d="M0,50 Q300,-50 600,50 T1200,50" class="shape-line"></path>
+                </svg>
+            </div>
+        </section>
+
+        <!-- Sección 6: Pases de Invitados  -->
+        <section id="pases" class="seccion">
+            <div class="seccion-contenido">
+                <h2>Cupos</h2>
+                <div class="numero-invitados">2</div>
+                <h2>Invitados</h2>
+                <div class="lista-invitados">
+                    <span class="nombre-invitado" id="nombre-invitado">Invitado Especial</span>
+                </div>
+                <p class="letra">Nos encanta compartir este momento contigo. ¡Te esperamos!</p>
+            </div>
+            </div>
+
+            <!-- Shape Divider Arc (Passes -> Info) -->
+            <div class="shape-divider-arc">
+                <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+                    preserveAspectRatio="none">
+                    <!-- Capa 1: Acento Dorado -->
+                    <path
+                        d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"
+                        class="shape-fill"></path>
+                    <!-- Capa 2: Principal Blanca -->
+                    <path
+                        d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z"
+                        class="shape-fill"></path>
+                </svg>
+            </div>
+        </section>
+
+        <!-- Sección 7: Código de Vestimenta y Notas -->
+        <section id="info-adicional" class="seccion seccion-fondo-blanco">
+            <div class="seccion-contenido">
+                <h2>Información Adicional</h2>
+                <div class="info-columnas">
+                    <div class="columna">
+                        <h3>Código de Vestimenta</h3>
+                        <p>
+                            <b class="boton letra">Se reserva el color blanco para la novia. </b>
+                        <div>
+                            <br>
+                        </div>
+                        <b class="letra">Tonos pastel (no floreados) </b>
+                        </p>
+                    </div>
+                    <div class="columna">
+                        <h3>Notas Importantes</h3>
+                        <p class="letra">Es importante que confirmes tu asistencia antes del 15 de febrero.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección 8: Regalos (Lluvia de Sobres) -->
+        <section id="regalos" class="seccion">
+            <div class="seccion-contenido">
+                <h2>Regalos</h2>
+                <i class="fi fi-tr-gifts"></i>
+                <p class="letra">El mejor regalo es su presencia, pero si desean obsequiarnos algo, pueden hacerlo en
+                    nuestro buzón para la <b>lluvia de sobres</b> o <b>regalos</b>.
+                </p>
+
+                <!-- Decoración Floral Geométrica Flotante -->
+                <div class="decoracion-flotante derecha">
+                    <svg viewBox="0 0 200 400" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Líneas Geométricas Doradas -->
+                        <path d="M100,50 L180,150 L150,300 L50,350 L20,200 Z" fill="none" class="geom-line" />
+                        <path d="M120,80 L190,180 L160,320" fill="none" class="geom-line" />
+
+                        <!-- Hojas -->
+                        <g class="hojas-grupo">
+                            <!-- Hoja 1 -->
+                            <path d="M100,100 Q150,50 180,120 Q130,170 100,100" class="hoja" />
+                            <!-- Hoja 2 -->
+                            <path d="M100,150 Q50,120 20,180 Q70,220 100,150" class="hoja" />
+                            <!-- Hoja 3 -->
+                            <path d="M150,200 Q190,170 190,250 Q150,280 150,200" class="hoja" />
+                            <!-- Hoja 4 -->
+                            <path d="M80,250 Q40,220 50,300 Q90,320 80,250" class="hoja" />
+                            <!-- Tallo Central -->
+                            <path d="M100,350 Q100,200 100,100" fill="none" stroke="#8F9E8B" stroke-width="2" />
+                        </g>
+                    </svg>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Sección 9: Despedida -->
+    <footer id="despedida">
+        <h2>¡Gracias por acompañarnos!</h2>
+
+        <!-- Decoración Final: Anillos y Hojas -->
+        <div class="decoracion-final">
+            <svg viewBox="0 0 100 80" xmlns="http://www.w3.org/2000/svg">
+                <!-- Anillos Mejorados -->
+                <!-- Anillo 1 (Banda) -->
+                <circle cx="42" cy="45" r="20" fill="none" stroke="#A67841" stroke-width="2.5" opacity="0.9" />
+
+                <!-- Anillo 2 (Con diamante) -->
+                <circle cx="58" cy="45" r="20" fill="none" stroke="#A67841" stroke-width="1.5" opacity="0.9" />
+                <!-- Diamante -->
+                <path d="M58,20 L63,27 L58,34 L53,27 Z" fill="#f9f6f2" stroke="#A67841" stroke-width="1" />
+
+                <!-- Hojas Decorativas (Ajustadas) -->
+                <path d="M35,15 Q25,5 15,20 Q5,35 35,25" fill="#8F9E8B" opacity="0.6" />
+                <path d="M65,15 Q75,5 85,20 Q95,35 65,25" fill="#8F9E8B" opacity="0.6" />
+            </svg>
+        </div>
+
+        <p class="letra">Con amor,</p>
+        <p class="nombres-novios">Daniel y Stephania</p>
+    </footer>
+
+    <!-- Botón Flotante de Música -->
+    <button id="btn-control-musica" class="boton-flotante-musica oculto">
+        <svg class="icono-musica" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M9 18V5L21 3V16" stroke="#A67841" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+            <circle cx="6" cy="18" r="3" stroke="#A67841" stroke-width="2" fill="none" />
+            <circle cx="18" cy="16" r="3" stroke="#A67841" stroke-width="2" fill="none" />
+        </svg>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
