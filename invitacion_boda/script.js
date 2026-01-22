@@ -151,6 +151,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const dataNombres = params.get('familia');
     
     const contenedor = document.getElementById('contenedor-invitados');
+    const contadorCupos = document.getElementById('cantidad-cupos');
 
     if (dataNombres) {
         // 1. Limpiamos el contenedor (borramos "Invitado Especial")
@@ -159,6 +160,11 @@ document.addEventListener('DOMContentLoaded', function() {
         // 2. Convertimos el texto del link en una lista (Array)
         // Ejemplo: "Juan|Ana|Luis" se convierte en ["Juan", "Ana", "Luis"]
         const listaNombres = dataNombres.split('|');
+
+        // Asignamos la cantidad de nombres encontrados al número en pantalla
+        if (contadorCupos) {
+            contadorCupos.innerText = listaNombres.length;
+        }
 
         // 3. Recorremos la lista y creamos un elemento por cada persona
         listaNombres.forEach(nombre => {
